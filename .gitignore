@@ -3,7 +3,10 @@
 *.classpath
 *.project
 *.settings/
-*.metadata/
+/bin
+
+#intellij
+*.idea/
 
 # Log file
 *.log
@@ -23,7 +26,7 @@
 *.tar.gz
 *.rar
 
-### Java-web ###
+### Java-Web ###
 ## ignoring target file
 target/
 
