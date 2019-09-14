@@ -11,7 +11,6 @@ import br.com.proway.api.data.ConexaoMysqlJDBC;
 import br.com.proway.api.model.Chamado;
 import br.com.proway.api.model.util.Status;
 
-
 public class ChamadoDAO {
 
 	private final ConexaoJDBC conexao;
@@ -30,7 +29,7 @@ public class ChamadoDAO {
 			stmt.setString(2, chamado.getStatus().toString());
 			stmt.setString(3, chamado.getMensagem());
 			stmt.execute();
-			
+
 			this.conexao.commit();
 		} catch (SQLException e) {
 			this.conexao.rollback();
@@ -79,7 +78,7 @@ public class ChamadoDAO {
 	}
 
 	public Chamado selecionar(long id) throws SQLException, ClassNotFoundException {
-		String sqlQuery = "SELECT * FROM chamado WHERE id = ?";
+		String sqlQuery = "SELECT id, assunto, status, mensagem FROM chamado WHERE id = ?";
 
 		try {
 			PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);

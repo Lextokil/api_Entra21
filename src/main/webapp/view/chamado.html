@@ -1,0 +1,57 @@
+<br>
+<form class="navbar-form pull-left">
+</form>
+	<div class="row">
+  	  <div class="form-group col-md-2">
+  	  	<label for="exampleInputEmail1">ID</label>
+  	  	<input type="text" class="form-control"ng-model="chamado.id" id="InputId" placeholder="Digite o valor">
+  	  </div>
+	   <div class="form-group col-md-2">
+  	  	<label for="exampleInputEmail1">Assunto</label>
+  	  	<input type="text" class="form-control"ng-model="chamado.assunto" id="InputAssunto" placeholder="Digite o valor">
+  	  </div>
+	  <div class="form-group col-md-2">
+  	  	<label for="exampleInputEmail1">Status</label>
+  	  	<input type="text" class="form-control"ng-model="chamado.status" id="InputStatus" placeholder="Digite o valor">
+  	  </div>
+	  <div class="form-group col-md-2">
+  	  	<label for="exampleInputEmail1">Mensagem</label>
+  	  	<input type="text" class="form-control"ng-model="chamado.mensagem" id="InputMensagem" placeholder="Digite o valor">
+  	  </div>
+  	  <div class="">
+  	  <input type="button" value="Salvar" class="btn btn-primary" ng-click="salvarChamado()"style="margin-top: 25px" />
+  	  </div>
+	</div>
+     
+
+
+
+<br><br>
+<input type="button" value="Pesquisar" class="btn btn-primary" ng-click="listarChamados()" />
+<input type="button" value="Desfazer" class="btn btn-primary" ng-click="cancelarAlteracaoChamado()" />
+
+<br><br>
+
+
+<table class="table table-striped" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>ID:</td>
+		<td>Assunto:</td>
+		<td>Status:</td>
+		<td>Mensagem:</td>
+		<td>Visualizar</td>  
+		<td>Editar</td>
+		<td>Excluir</td>
+	</tr>
+	<tr ng-repeat="chamado in listaChamado">
+		<td>{{chamado.id }}</td>
+		<td>{{chamado.assunto }}</td>
+		<td>{{chamado.status }}</td>
+		<td>{{chamado.mensagem }}</td>
+		
+		
+		<td><a href="chamados/{{chamado.id}}" class= "btn-success btn-xs">Visualizar</a></td>
+		<td><input type="button" value=" editar " class="btn btn-warning btn-xs" ng-click="alterarChamado(chamado)" /></td>
+		<td><input type="button" value=" Excluir" class="btn btn-danger btn-xs" ng-click="deleteChamado(chamado.id)" /></td>			
+	</tr>
+</table>
